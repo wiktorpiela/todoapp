@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Log in
+{% endblock title %}
+    
+
+{% block content %}
+
+    <div class="log-form">
+
+        <div class="log-header">
+            <h1>Log in</h1>
+        </div>
+        
+        <form action="{% url 'login_user' %}" method="post">
+
+            <label for="id_username">Username </label>
+            <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
+
+            <label for="id_password">Password </label>
+            <input type="password" name="password" autocomplete="current-password" required="" id="id_password">
+
+            {% csrf_token %}
+
+            <button class="btn-full btn" type="submit">Log in</button>
+
+        </form>
+        
+    </div>
+
+    <!-- {{form}} -->
+{% endblock content %}
+    

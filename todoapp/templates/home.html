@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}
+    Task Manager
+{% endblock title %}
+
+
+
+{% block content %}
+
+{% if user.is_authenticated %}
+    <h1>Welcome to TaskManager, {{user.username|capfirst}}</h1>
+{% else %}
+    <h1>This site is only for authenticated users</h1>
+    <p>Please sign in or register if you don't have account</p>
+{% endif %}
+    
+
+{% endblock content %}
+    

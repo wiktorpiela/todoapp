@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}
+    {{user.username}}'s tasks
+{% endblock title %}
+
+
+{% block content %}
+
+<div class="current-tasks">
+
+    <h1>Current tasks</h1>
+
+    <ul class="tasks-container">
+        {% for current_task in current_tasks %}
+        
+        {% if current_task.important %}
+        <li class="important">
+        {% else %}
+        <li>
+        {% endif %}
+
+        <a href="{% url 'task_details' current_task.id %}">
+            <div class="tasks-row">
+                <h5>{{current_task.title|capfirst}}</h5>
+                {% if current_task.desc %}
+                <p>{{current_task.desc|truncatechars:15}}</p>
+                {% endif %}
+                <p>{{current_task.create_date|date:'j E Y'}}</p>
+            </div>
+        </a>
+
+        </li> 
+        {% endfor %}  
+    </ul>
+</div>
+
+
+{% if complete_tasks %}
+
+<div class="current-tasks">
+
+    <h1>Complete tasks</h1>
+
+    <ul class="tasks-container">
+        {% for complete_task in complete_tasks %}
+        
+        {% if complete_task.important %}
+        <li class="important">
+        {% else %}
+        <li>
+        {% endif %}
+
+        <a href="{% url 'task_details' complete_task.id %}">
+            <div class="tasks-row">
+                <h5>{{complete_task.title|capfirst}}</h5>
+                {% if complete_task.desc %}
+                <p>{{complete_task.desc|truncatechars:15}}</p>
+                {% endif %}
+                <p>{{complete_task.create_date|date:'j E Y'}}</p>
+            </div>
+        </a>
+
+        </li> 
+        {% endfor %}  
+    </ul>
+</div>
+
+{% else %}
+
+    <h3>You don't have completed tasks currently</h3>
+
+{% endif %}
+
+
+
+
+{% endblock content %}
+    
+    

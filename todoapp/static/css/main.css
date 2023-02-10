@@ -166,7 +166,15 @@ label {
     flex-direction: column;
     max-width: 550px;
     margin: 0 auto;
-    align-items: center;  
+    align-items: center;
+}
+
+.log-form input[type='text'] {
+    margin-bottom: 2rem;
+}
+
+.log-form input[type='password'] {
+    margin-bottom: 2rem;
 }
 
 .log-header {

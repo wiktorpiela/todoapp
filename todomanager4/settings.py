@@ -16,7 +16,9 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+
+CSRF_TRUSTED_ORIGINS = ['https://web-production-4618.up.railway.app']
 
 # Application definition
 
@@ -116,6 +118,8 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
+STATICFILES_DIRS = [BASE_DIR / 'todoapp/static']
 
 DISABLE_COLLECTSTATIC = 0
 
